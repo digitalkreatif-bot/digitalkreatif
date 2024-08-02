@@ -6,6 +6,7 @@ import BackgroundMusic from './BackgroundMusic'; // Import komponen musik
 
 const Header = ({ toggleMode, isDarkMode }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
   const [musicStarted, setMusicStarted] = useState(false);
 
   useEffect(() => {
@@ -20,6 +21,10 @@ const Header = ({ toggleMode, isDarkMode }) => {
 
   const startMusic = () => {
     setMusicStarted(true);
+  };
+
+  const toggleMute = () => {
+    setIsMuted(prevMuted => !prevMuted);
   };
 
   return (
@@ -40,7 +45,9 @@ const Header = ({ toggleMode, isDarkMode }) => {
           >
             {isDarkMode ? <FaMoon size={24} /> : <FaSun size={24} />}
           </button>
-          {musicStarted && <BackgroundMusic />} {/* Tampilkan kontrol musik setelah interaksi */}
+          {musicStarted && (
+            <BackgroundMusic isMuted={isMuted} toggleMute={toggleMute} /> // Pass props to BackgroundMusic
+          )}
         </div>
       </nav>
     </header>

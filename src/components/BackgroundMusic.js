@@ -1,19 +1,10 @@
 // src/components/BackgroundMusic.js
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import musicFile from '../assets/music.mp3'; // Ganti dengan path ke file musik
 
-const BackgroundMusic = () => {
-  const [isMuted, setIsMuted] = useState(false);
+const BackgroundMusic = ({ isMuted, toggleMute }) => {
   const audioRef = useRef(null);
 
-  const toggleMute = () => {
-    if (audioRef.current) {
-      audioRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
-
-  // Memulai audio setelah komponen dimuat
   useEffect(() => {
     const playAudio = async () => {
       try {
