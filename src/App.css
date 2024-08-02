@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header {
+  z-index: 1; /* Pastikan header berada di atas video */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+main {
+  z-index: 1; /* Pastikan konten utama berada di atas video */
+  margin-top: 4rem; /* Atur margin sesuai tinggi header */
+}
+
+footer {
+  z-index: 1; /* Pastikan footer berada di atas video */
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.video-background video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Transisi untuk perubahan opacity */
+}
+
+.video-background video.visible {
+  opacity: 1;
+}
+
+.music-controls {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mute-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: inherit;
+  margin-left: 10px; /* Tambahkan jarak dari ikon sebelumnya */
 }
