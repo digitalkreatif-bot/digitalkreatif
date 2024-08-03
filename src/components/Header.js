@@ -4,10 +4,11 @@ import logo from '../assets/dk.png';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import BackgroundMusic from './BackgroundMusic'; // Import komponen musik
 
-const Header = ({ toggleMode, isDarkMode }) => {
+const Header = ({ toggleMode, isDarkMode, setIsDarkMode }) => {
   const [scrolled, setScrolled] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [musicStarted, setMusicStarted] = useState(false);
+  const [showButton, setShowButton] = useState(true); // State untuk mengelola visibilitas tombol
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,30 +28,46 @@ const Header = ({ toggleMode, isDarkMode }) => {
     setIsMuted(prevMuted => !prevMuted);
   };
 
+  const handleButtonClick = () => {
+    setShowButton(false); // Sembunyikan tombol ketika diklik
+    setIsDarkMode(true); // Ubah ke mode gelap
+    startMusic(); // Mulai musik saat tombol diklik
+  };
+
   return (
-    <header className={`fixed top-0 left-1/2 transform -translate-x-1/2 p-2 z-20 transition-all duration-300 ${scrolled ? 'bg-white/30 backdrop-blur-lg w-full rounded-none' : 'bg-white w-11/12 rounded-b-lg'}`}>
-      <nav className="container mx-auto flex justify-between items-center font-montserrat">
-        <div className="flex items-center">
-          <img src={logo} alt="Logo" className="h-10 w-10 mr-1" />
-          <div className="text-3xl font-bold text-gray-900">Digif.</div>
-        </div>
-        <div className="flex items-center space-x-4">
-          <button 
-            onClick={() => {
-              toggleMode();
-              startMusic(); // Mulai musik saat mode diubah
-            }}
-            className="text-gray-900 hover:text-gray-600 focus:outline-none"
-            aria-label="Toggle Dark Mode"
-          >
-            {isDarkMode ? <FaMoon size={24} /> : <FaSun size={24} />}
-          </button>
-          {musicStarted && (
-            <BackgroundMusic isMuted={isMuted} toggleMute={toggleMute} /> // Pass props to BackgroundMusic
-          )}
-        </div>
-      </nav>
-    </header>
+    <>
+      <header className={`fixed top-0 left-1/2 transform -translate-x-1/2 p-2 z-20 transition-all duration-300 ${scrolled ? 'bg-[#e2e8f0]/30 backdrop-blur-lg w-full rounded-none' : 'bg-[#e2e8f0] w-11/12 rounded-b-lg'}`}>
+        <nav className="container mx-auto flex justify-between items-center font-montserrat">
+          <div className="flex items-center">
+            <img src={logo} alt="Logo" className="h-10 w-10 mr-1" />
+            <div className="text-3xl font-bold text-gray-900">Digif.</div>
+          </div>
+          <div className="flex items-center space-x-4">
+            {showButton ? (
+              <button 
+                onClick={handleButtonClick}
+                className="text-gray-900 hover:text-gray-600 focus:outline-none"
+              >
+                Click Me
+              </button>
+            ) : (
+              <>
+                <button 
+                  onClick={toggleMode}
+                  className="text-gray-900 hover:text-gray-600 focus:outline-none"
+                  aria-label="Toggle Dark Mode"
+                >
+                  {isDarkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
+                </button>
+                {musicStarted && (
+                  <BackgroundMusic isMuted={isMuted} toggleMute={toggleMute} /> // Pass props to BackgroundMusic
+                )}
+              </>
+            )}
+          </div>
+        </nav>
+      </header>
+    </>
   );
 };
 

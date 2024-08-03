@@ -1,4 +1,4 @@
-// App.js
+// src/App.js
 import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
@@ -18,9 +18,9 @@ const App = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className={`flex flex-col min-h-screen ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <BackgroundVideo isDarkMode={isDarkMode} />
-      <Header toggleMode={toggleMode} isDarkMode={isDarkMode} />
+      <Header toggleMode={toggleMode} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <main className="flex-grow container mx-auto p-4 mt-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {currentItems.map((project, index) => (
@@ -30,6 +30,7 @@ const App = () => {
               description={project.description}
               link={project.link}
               image={project.image}
+              code={project.code}
             />
           ))}
         </div>

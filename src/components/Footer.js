@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="flex justify-between items-center">
         <p>&copy; 2024 Digital Kreatif. All rights reserved.</p>
         <div className="flex space-x-4">
-          <a href="https://wa.me/your-number" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/+6285157965632" target="_blank" rel="noopener noreferrer">
             <FaWhatsapp size={24} />
           </a>
           <a href="mailto:digitalkreatif@digif.site" target="_blank" rel="noopener noreferrer">

@@ -16,14 +16,15 @@ const BackgroundMusic = ({ isMuted, toggleMute }) => {
       }
     };
 
-    playAudio();
-  }, []);
+    if (!isMuted) {
+      playAudio();
+    }
+  }, [isMuted]);
 
   return (
     <div className="music-controls">
       <audio
         ref={audioRef}
-        autoPlay
         loop
         src={musicFile}
         muted={isMuted}
