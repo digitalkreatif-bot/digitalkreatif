@@ -4,8 +4,8 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: ['./src/index.js', './src/components/Header.js', './src/components/Footer.js', './src/components/ProjectCard.js', './src/components/Pagination.js', './src/components/BackgroundMusic.js', './src/components/BackgroundVideo.js', './src/utils/Project.js', './src/hooks/usePagination.js', './src/App.js'],
-    styles: './src/styles/styles.css'
+    main: ['./src/index.js', './src/components/Header.js', './src/components/Footer.js', './src/components/ProjectCard.js', './src/components/Pagination.js', './src/components/BackgroundMusic.js', './src/components/BackgroundVideo.js', './src/utils/project.js', './src/hooks/usePagination.js', './src/App.js'],
+    styles: './src/styles/Styles.css'
   },
   output: {
     filename: 'js/[name].js',
@@ -38,6 +38,18 @@ module.exports = {
             options: {
               name: '[name].[hash].[ext]',
               outputPath: 'media'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash].[ext]',
+              outputPath: 'images'
             }
           }
         ]
