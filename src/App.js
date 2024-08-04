@@ -1,6 +1,6 @@
 // src/App.js
 import React, { useState } from 'react';
-import './App.css';
+import './styles/Styles.css';
 import Header from './components/Header';
 import ProjectCard from './components/ProjectCard';
 import Footer from './components/Footer';
