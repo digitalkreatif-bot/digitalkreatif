@@ -1,6 +1,6 @@
 // src/components/BackgroundMusic.js
 import React, { useRef, useEffect } from 'react';
-import musicFile from '../assets/music.mp3'; // Ganti dengan path ke file musik
+import musicFile from '../assets/music.mp3';
 
 const BackgroundMusic = ({ isMuted, toggleMute }) => {
   const audioRef = useRef(null);

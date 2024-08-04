@@ -9,10 +9,10 @@ module.exports = {
         neomorphism: '7px 7px 14px #c5c5c5, -7px -7px 14px #cbd2e0',
       },
       backgroundColor: {
-        'active': '#e2e8f0', // Custom background color for active state
+        'active': '#e2e8f0',
       },
       textShadow: {
-        'inset': '1px 1px 2px rgba(0, 0, 0, 0.3), -1px -1px 2px rgba(255, 255, 255, 0.8)', // Shadow inset effect
+        'inset': '1px 1px 2px rgba(0, 0, 0, 0.3), -1px -1px 2px rgba(255, 255, 255, 0.8)',
       }
     }
   },

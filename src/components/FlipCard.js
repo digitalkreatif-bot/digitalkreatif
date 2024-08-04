@@ -45,7 +45,7 @@ const FlipCard = ({ frontContent, backContent, isFlipped }) => {
   }, []);
 
   useEffect(() => {
-    // Handle flip animation
+    
   }, [isFlipped]);
 
   return <div ref={mountRef} style={{ width: '100%', height: '100%' }} />;

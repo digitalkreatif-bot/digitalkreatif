@@ -15,16 +15,16 @@
 }
 
 header {
-  z-index: 1; /* Pastikan header berada di atas video */
+  z-index: 1;
 }
 
 main {
-  z-index: 1; /* Pastikan konten utama berada di atas video */
-  margin-top: 4rem; /* Atur margin sesuai tinggi header */
+  z-index: 1;
+  margin-top: 4rem;
 }
 
 footer {
-  z-index: 1; /* Pastikan footer berada di atas video */
+  z-index: 1;
 }
 
 .video-background {
@@ -45,7 +45,7 @@ footer {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 1s ease-in-out; /* Transisi untuk perubahan opacity */
+  transition: opacity 1s ease-in-out;
 }
 
 .video-background video.visible {
@@ -63,5 +63,5 @@ footer {
   font-size: 1.5rem;
   cursor: pointer;
   color: inherit;
-  margin-left: 10px; /* Tambahkan jarak dari ikon sebelumnya */
+  margin-left: 10px;
 }

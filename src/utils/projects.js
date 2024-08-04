@@ -86,6 +86,5 @@ export const projects = [
     link: 'https://9a73dcd9.digitalkreatif.pages.dev/',
     image: `https://api.screenshotmachine.com?key=${API_KEY}&url=https://9a73dcd9.digitalkreatif.pages.dev/&dimension=1280x870`,
     code : '#0012'
-  },
-  // Add more projects here
+  }
 ];

@@ -2,13 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import logo from '../assets/dk.png';
 import { FaSun, FaMoon } from 'react-icons/fa';
-import BackgroundMusic from './BackgroundMusic'; // Import komponen musik
+import BackgroundMusic from './BackgroundMusic';
 
 const Header = ({ toggleMode, isDarkMode, setIsDarkMode }) => {
   const [scrolled, setScrolled] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [musicStarted, setMusicStarted] = useState(false);
-  const [showButton, setShowButton] = useState(true); // State untuk mengelola visibilitas tombol
+  const [showButton, setShowButton] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,9 +29,9 @@ const Header = ({ toggleMode, isDarkMode, setIsDarkMode }) => {
   };
 
   const handleButtonClick = () => {
-    setShowButton(false); // Sembunyikan tombol ketika diklik
-    setIsDarkMode(true); // Ubah ke mode gelap
-    startMusic(); // Mulai musik saat tombol diklik
+    setShowButton(false);
+    setIsDarkMode(true);
+    startMusic();
   };
 
   return (
